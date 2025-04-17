@@ -19,7 +19,8 @@ public class AutorService {
     }
 
     public Autor save(Autor autor) {
-        if (autor.getNome() == null || autor.getSobrenome() == null) {
+        if (autor.getNome() == null || autor.getNome().trim().isEmpty() ||
+                autor.getSobrenome() == null || autor.getSobrenome().trim().isEmpty()) {
             throw new InvalidAutorException("Nome e sobrenome são obrigatórios.");
         }
         return dao.save(autor);
